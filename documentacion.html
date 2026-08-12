@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Documentacion Bootstrap</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Colores de mi pagina -->
+    <link rel="stylesheet" href="proyectos.css">
+</head>
+
+<body id="arriba" class="bg-warning-subtle">
+
+    <!-- BARRA DE NAVEGACION -->
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+        <section class="container">
+
+            <a class="navbar-brand fw-bold" href="micv.html">
+                Claudia Tajiboy
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menu">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <section class="collapse navbar-collapse" id="menu">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="micv.html">
+                            Hoja de vida
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="Proyectos.html">
+                            Proyectos
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="documentacion.html">
+                            Documentacion
+                        </a>
+                    </li>
+
+                </ul>
+
+            </section>
+
+        </section>
+
+    </nav>
+
+
+    <!-- TITULO PRINCIPAL -->
+
+    <header class="container text-center py-5">
+
+        <h1 class="display-4 fw-bold">
+            Mi documentacion de Bootstrap
+        </h1>
+
+        <p class="lead">
+            Aqui coloque las cosas de Bootstrap que utilice en mi pagina de proyectos
+        </p>
+
+    </header>
+
+
+    <main class="container">
+
+
+        <!-- INDICE -->
+
+        <section class="mb-5">
+
+            <h2>Indice</h2>
+
+            <p>
+                <a href="#integracion" class="btn btn-primary m-1">Integracion</a>
+                <a href="#breakpoints" class="btn btn-primary m-1">Breakpoints</a>
+                <a href="#rejilla" class="btn btn-primary m-1">Rejilla</a>
+                <a href="#boton" class="btn btn-primary m-1">Button</a>
+                <a href="#card" class="btn btn-primary m-1">Card</a>
+                <a href="#badge" class="btn btn-primary m-1">Badge</a>
+                <a href="#navbar" class="btn btn-primary m-1">Navbar</a>
+                <a href="#formulario" class="btn btn-primary m-1">Formulario</a>
+                <a href="#collapse" class="btn btn-primary m-1">Collapse</a>
+                <a href="#clases" class="btn btn-primary m-1">Clases</a>
+                <a href="#errores" class="btn btn-primary m-1">Errores</a>
+            </p>
+
+        </section>
+
+
+        <!-- INTEGRACION -->
+
+        <section id="integracion" class="mb-5">
+
+            <h2>1 - Integracion de Bootstrap</h2>
+
+            <p>
+                Use estas lineas para poder usar Bootstrap dentro de mi pagina
+            </p>
+
+            <p>
+                La primera linea carga los estilos y va dentro del head
+            </p>
+
+            <pre class="bg-light p-3"><code>&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+rel="stylesheet"&gt;</code></pre>
+
+            <p>
+                La segunda linea carga el JavaScript y la puse antes de cerrar el body
+            </p>
+
+            <pre class="bg-light p-3"><code>&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</code></pre>
+
+            <p>
+                Use el JavaScript porque algunas cosas como el menu y el collapse necesitan que este cargado para funcionar
+            </p>
+
+            <p>
+                Al principio pense que con solo poner el CSS ya funcionaba todo
+                Cuando el collapse no respondia revise Network y me di cuenta que tambien necesitaba el bundle de JavaScript
+            </p>
+
+            <a href="#arriba" class="btn btn-secondary">
+                Volver arriba
+            </a>
+
+        </section>
+
+
+        <!-- BREAKPOINTS -->
+
+        <section id="breakpoints" class="mb-5">
+
+            <h2>2 - Breakpoints</h2>
+
+            <p>
+                Los use para que la pagina cambie dependiendo del tamaño de la pantalla
+            </p>
+
+            <p>
+                En mis proyectos use principalmente md y lg
+            </p>
+
+            <table class="table table-bordered table-light">
+
+                <thead>
+
+                    <tr>
+                        <th>Breakpoint</th>
+                        <th>Prefijo</th>
+                        <th>Tamaño</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>xs</td>
+                        <td>Sin prefijo</td>
+                        <td>Menor a 576 px</td>
+                    </tr>
+
+                    <tr>
+                        <td>sm</td>
+                        <td>col-sm-</td>
+                        <td>Desde 576 px</td>
+                    </tr>
+
+                    <tr>
+                        <td>md</td>
+                        <td>col-md-</td>
+                        <td>Desde 768 px</td>
+                    </tr>
+
+                    <tr>
+                        <td>lg</td>
+                        <td>col-lg-</td>
+                        <td>Desde 992 px</td>
+                    </tr>
+
+                    <tr>
+                        <td>xl</td>
+                        <td>col-xl-</td>
+                        <td>Desde 1200 px</td>
+                    </tr>
+
+                    <tr>
+                        <td>xxl</td>
+                        <td>col-xxl-</td>
+                        <td>Desde 1400 px</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <p>
+                Use md para mostrar dos proyectos por fila y lg para mostrar tres
+            </p>
+
+            <p>
+                Al principio me confundia con md y lg porque no recordaba desde que tamaño empezaba cada uno
+                Lo revise cambiando el ancho de la pagina en DevTools y viendo cuando cambiaban las columnas
+            </p>
+
+            <a href="#arriba" class="btn btn-secondary">
+                Volver arriba
+            </a>
+
+        </section>
+
+
+        <!-- REJILLA -->
+
+        <section id="rejilla" class="mb-5">
+
+            <h2>3 - Rejilla</h2>
+
+            <p>
+                Use la rejilla para ordenar las tarjetas de mis proyectos
+            </p>
+
+            <p>
+                La estructura que use fue container, row y col
+            </p>
+
+            <pre class="bg-light p-3"><code>&lt;main class="container"&gt;
+
+    &lt;section class="row"&gt;
+
+        &lt;article class="col"&gt;
+            contenido
+        &lt;/article&gt;
+
+    &lt;/section&gt;
+
+&lt;/main&gt;</code></pre>
+
+            <p>
+                En mi pagina de proyectos use esta combinacion
+            </p>
+
+            <pre class="bg-light p-3"><code>&lt;section class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"&gt;
+    proyectos
+&lt;/section&gt;</code></pre>
+
+            <p>
+                row-cols-1 hace que se vea un proyecto por fila
+            </p>
+
+            <p>
+                row-cols-md-2 hace que desde md se vean dos proyectos
+            </p>
+
+            <p>
+                row-cols-lg-3 hace que desde lg se vean tres proyectos
+            </p>
+
+            <p>
+                g-4 lo use para dejar espacio entre las tarjetas
+            </p>
+
+            <p>
+                Lo que mas me costo fue entender como cambiar de una columna a dos y luego a tres
+                Lo probe desde DevTools cambiando el tamaño de la pantalla hasta que vi los dos cambios
+            </p>
+
+            <a href="#arriba" class="btn btn-secondary">
+                Volver arriba
+            </a>
+
+        </section>
+
+
+        <!-- BOTONES -->
+
+        <section id="boton" class="mb-5">
+
+            <h2>4 - Button</h2>
+
+            <p>
+                Use btn para darle el estilo de Bootstrap a mis botones
+            </p>
+
+            <p>
+                Use btn-primary para que tuvieran el color principal de mi pagina
+            </p>
+
+            <button class="btn btn-primary">
+                Ver detalles
+            </button>
+
+            <h3 class="h5 mt-3">
+                Codigo
+            </h3>
+
+            <pre class="bg-light p-3"><code>&lt;button class="btn btn-primary"&gt;
+    Ver detalles
+&lt;/button&gt;</code></pre>
+
+            <p>
+                Use este boton en Ver proyectos, Ver detalles y Enviar mensaje
+            </p>
+
+            <p>
+                Una vez deje solo btn-primary y el boton no se miraba como esperaba
+                Revise en Elements las clases y vi que tambien necesitaba la clase btn
+            </p>
+
+            <a href="#arriba" class="btn btn-secondary">
+                Volver arriba
+            </a>
+
+        </section>
+
+
+        <!-- TARJETAS -->
+
+        <section id="card" class="mb-5">
+
+            <h2>5 - Card</h2>
+
+            <p>
+                Use card para poner cada proyecto dentro de una tarjeta
+            </p>
+
+            <p>
+                Asi pude tener la imagen, el nombre, la descripcion y las tecnologias en un mismo lugar
+            </p>
+
+            <article class="card">
+
+                <section class="card-body">
+
+                    <h3 class="h4 fw-bold">
+                        PANGOS S.A.
+                    </h3>
+
+                    <p>
+                        Sistema para registrar ventas, productos y stock
+                    </p>
+
+                </section>
+
+            </article>
+
+            <h3 class="h5 mt-3">
+                Codigo
+            </h3>
+
+            <pre class="bg-light p-3"><code>&lt;article class="card"&gt;
+
+    &lt;section class="card-body"&gt;
+
+        &lt;h3 class="h4 fw-bold"&gt;
+            PANGOS S.A.
+        &lt;/h3&gt;
+
+        &lt;p&gt;
+            Sistema para registrar ventas, productos y stock
+        &lt;/p&gt;
+
+    &lt;/section&gt;
+
+&lt;/article&gt;</code></pre>
+
+            <p>
+                card crea la tarjeta y card-body es donde coloque la informacion del proyecto
+            </p>
+
+            <p>
+                Al principio tenia el contenido fuera de card-body y no se miraba tan ordenado
+                Revise en Elements la estructura y luego deje la informacion dentro de card-body
+            </p>
+
+            <a href="#arriba" class="btn btn-secondary">
+                Volver arriba
+            </a>
+
+        </section>
+
+
+        <!-- BADGES -->
+
+        <section id="badge" class="mb-5">
+
+            <h2>6 - Badge</h2>
+
+            <p>
+                Use badge para mostrar con que tecnologia hice cada proyecto
+            </p>
+
+            <span class="badge text-bg-warning">
+                C#
+            </span>
+
+            <span class="badge text-bg-dark">
+                Arduino
+            </span>
+
+            <h3 class="h5 mt-3">
+                Codigo
+            </h3>
+
+            <pre class="bg-light p-3"><code>&lt;span class="badge text-bg-warning"&gt;C#&lt;/span&gt;
+
+&lt;span class="badge text-bg-dark"&gt;Arduino&lt;/span&gt;</code></pre>
+
+            <p>
+                badge crea la insignia
+            </p>
+
+            <p>
+                text-bg-warning lo use para el color amarillo y text-bg-dark para el color oscuro
+            </p>
+
+            <p>
+                Al principio solo habia puesto el texto y no resaltaba dentro de la tarjeta
+                Agregue badge y revise en Elements que la clase estuviera aplicada al span
+            </p>
+
+            <a href="#arriba" class="btn btn-secondary">
+                Volver arriba
+            </a>
+
+        </section>
+
+
+        <!-- NAVBAR Y MENU HAMBURGUESA -->
+
+        <section id="navbar" class="mb-5">
+
+            <h2>7 - Navbar y Toggler</h2>
+
+            <p>
+                Use navbar para crear la barra que esta arriba de mi pagina
+            </p>
+
+            <p>
+                La use para poder moverme entre mi hoja de vida, proyectos y documentacion
+            </p>
+
+            <pre class="bg-light p-3"><code>&lt;nav class="navbar navbar-expand-md navbar-dark bg-dark"&gt;
+
+    &lt;button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu"&gt;
+
+        &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+
+    &lt;/button&gt;
+
+    &lt;section class="collapse navbar-collapse" id="menu"&gt;
+        enlaces
+    &lt;/section&gt;
+
+&lt;/nav&gt;</code></pre>
+
+            <p>
+                navbar-expand-md hace que el menu se vea completo desde una pantalla mediana
+            </p>
+
+            <p>
+                navbar-toggler hace que aparezca el boton de tres lineas cuando la pantalla es pequeña
+            </p>
+
+            <p>
+                data-bs-target="#menu" tiene que tener el mismo nombre que id="menu"
+            </p>
+
+            <p>
+                Al principio el boton de tres lineas aparecia pero no abria el menu
+                Revise en Elements y vi que data-bs-target y el id del menu tenian que tener el mismo nombre
+            </p>
+
+            <a href="#arriba" class="btn btn-secondary">
+                Volver arriba
+            </a>
+
+        </section>
+
+
+        <!-- FORMULARIO -->
+
+        <section id="formulario" class="mb-5">
+
+            <h2>8 - Formulario</h2>
+
+            <p>
+                Use las clases de Bootstrap para que los campos del formulario se vieran ordenados
+            </p>
+
+            <form>
+
+                <label for="ejemploNombre" class="form-label">
+                    Nombre
+                </label>
+
+                <input type="text"
+                       class="form-control"
+                       id="ejemploNombre"
+                       name="ejemploNombre"
+                       required>
+
+            </form>
+
+            <h3 class="h5 mt-3">
+                Codigo
+            </h3>
+
+            <pre class="bg-light p-3"><code>&lt;label for="ejemploNombre" class="form-label"&gt;
+    Nombre
+&lt;/label&gt;
+
+&lt;input type="text"
+       class="form-control"
+       id="ejemploNombre"
+       name="ejemploNombre"
+       required&gt;</code></pre>
+
+            <p>
+                form-label lo use para el label
+            </p>
+
+            <p>
+                form-control lo use para darle el estilo de Bootstrap al input
+            </p>
+
+            <p>
+                required no es de Bootstrap, lo use para hacer obligatorio el campo
+            </p>
+
+            <p>
+                Una vez probe el formulario sin required y dejaba enviar el campo vacio
+                Revise el input en Elements y vi que faltaba ese atributo
+            </p>
+
+            <a href="#arriba" class="btn btn-secondary">
+                Volver arriba
+            </a>
+
+        </section>
+
+
+        <!-- COLLAPSE -->
+
+        <section id="collapse" class="mb-5">
+
+            <h2>9 - Collapse</h2>
+
+            <p>
+                Use collapse para que al presionar Ver detalles apareciera la informacion debajo del proyecto
+            </p>
+
+            <p>
+                Tambien hace que al volver a presionar el boton la informacion se oculte
+            </p>
+
+            <button class="btn btn-primary"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#ejemploDetalle">
+
+                Ver detalles
+
+            </button>
+
+            <p class="collapse mt-3" id="ejemploDetalle">
+                Se desarrollo en C# para llevar el control de productos, ventas y existencias
+            </p>
+
+            <h3 class="h5 mt-3">
+                Codigo
+            </h3>
+
+            <pre class="bg-light p-3"><code>&lt;button class="btn btn-primary"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#ejemploDetalle"&gt;
+
+    Ver detalles
+
+&lt;/button&gt;
+
+&lt;p class="collapse mt-3" id="ejemploDetalle"&gt;
+    Se desarrollo en C# para llevar el control de productos, ventas y existencias
+&lt;/p&gt;</code></pre>
+
+            <p>
+                data-bs-toggle="collapse" le indica a Bootstrap que el boton va a mostrar u ocultar algo
+            </p>
+
+            <p>
+                data-bs-target="#ejemploDetalle" busca el elemento que tenga id="ejemploDetalle"
+            </p>
+
+            <p>
+                Lo que mas me costo fue entender que data-bs-target tenia que conectarse con el id
+                Cuando no aparecia la informacion revise ambos valores en Elements y ahi pude ver el error
+            </p>
+
+            <a href="#arriba" class="btn btn-secondary">
+                Volver arriba
+            </a>
+
+        </section>
+
+
+        <!-- CLASES QUE USE -->
+
+        <section id="clases" class="mb-5">
+
+            <h2>10 - Clases que utilice</h2>
+
+            <p>
+                Estas son algunas clases que use varias veces en mi pagina
+            </p>
+
+            <table class="table table-bordered table-light">
+
+                <thead>
+
+                    <tr>
+                        <th>Clase</th>
+                        <th>Para que la use</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>container</td>
+                        <td>Para contener y centrar el contenido</td>
+                    </tr>
+
+                    <tr>
+                        <td>text-center</td>
+                        <td>Para centrar textos</td>
+                    </tr>
+
+                    <tr>
+                        <td>fw-bold</td>
+                        <td>Para poner el texto en negrita</td>
+                    </tr>
+
+                    <tr>
+                        <td>py-5</td>
+                        <td>Para dejar espacio arriba y abajo</td>
+                    </tr>
+
+                    <tr>
+                        <td>mt-3</td>
+                        <td>Para dejar espacio arriba</td>
+                    </tr>
+
+                    <tr>
+                        <td>mb-4</td>
+                        <td>Para dejar espacio abajo</td>
+                    </tr>
+
+                    <tr>
+                        <td>shadow</td>
+                        <td>Para agregar sombra a las tarjetas</td>
+                    </tr>
+
+                    <tr>
+                        <td>h-100</td>
+                        <td>Para que las tarjetas usen toda la altura disponible</td>
+                    </tr>
+
+                    <tr>
+                        <td>g-4</td>
+                        <td>Para dejar espacio entre las tarjetas</td>
+                    </tr>
+
+                    <tr>
+                        <td>bg-dark</td>
+                        <td>Para poner el fondo oscuro en la barra</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <a href="#arriba" class="btn btn-secondary">
+                Volver arriba
+            </a>
+
+        </section>
+
+
+        <!-- ERRORES -->
+
+        <section id="errores" class="mb-5">
+
+            <h2>11 - Errores que pueden pasar</h2>
+
+            <h3 class="h5">
+                CDN mal escrito
+            </h3>
+
+            <p>
+                Si la direccion del CDN esta mal la pagina puede cargar pero sin los estilos de Bootstrap
+            </p>
+
+            <p>
+                Para revisarlo puedo entrar a DevTools y luego a Network para ver si el archivo cargo bien
+            </p>
+
+
+            <h3 class="h5 mt-4">
+                data-bs-target y id diferentes
+            </h3>
+
+            <p>
+                Si los nombres no son iguales puedo presionar el boton pero no va a pasar nada
+            </p>
+
+            <pre class="bg-light p-3"><code>data-bs-target="#detalle1"
+
+id="detalle1"</code></pre>
+
+            <p>
+                Para revisarlo puedo entrar a Elements y comparar los dos nombres
+            </p>
+
+
+            <h3 class="h5 mt-4">
+                Falta el JavaScript de Bootstrap
+            </h3>
+
+            <p>
+                Si falta bootstrap.bundle.min.js los estilos pueden verse bien pero el collapse y el menu no van a funcionar
+            </p>
+
+            <p>
+                Puedo revisarlo en Network para ver si el archivo JavaScript realmente cargo
+            </p>
+
+            <p>
+                Si algo se ve bien pero no responde cuando le doy click revisaria primero el target, el id y el JavaScript
+            </p>
+
+            <a href="#arriba" class="btn btn-secondary">
+                Volver arriba
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PAGINA -->
+
+    <footer class="bg-dark text-light text-center py-4">
+
+        <p class="fw-bold mb-1">
+            Claudia Estefanía Zorin Tajiboy
+        </p>
+
+        <p class="mb-0">
+            Documentacion de Bootstrap
+        </p>
+
+    </footer>
+
+
+    <!-- Bootstrap JavaScript -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
