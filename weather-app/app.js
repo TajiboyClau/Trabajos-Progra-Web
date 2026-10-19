@@ -45,7 +45,7 @@ function getWeatherDescription(code) {
 
 function setLoading(isLoading) {
   dom.loading.hidden = !isLoading;
-  dom.panel.hidden = isLoading;
+  if (isLoading) dom.panel.hidden = true;
   dom.button.disabled = isLoading;
   dom.buttonText.textContent = isLoading ? "Consultando..." : "Buscar clima";
 }
