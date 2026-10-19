@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Consulta el clima actual y el pronóstico de una ciudad." />
+    <title>Clima Claro | Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="./" aria-label="Clima Claro, inicio">
+          <span class="brand-mark" aria-hidden="true">☼</span>
+          <span>Clima Claro</span>
+        </a>
+        <span class="status-pill"><span class="status-dot" aria-hidden="true"></span> Datos en tiempo real</span>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="page-title">
+          <div class="eyebrow">Tu pronóstico, sin complicaciones</div>
+          <h1 id="page-title">¿Qué clima hace <span>hoy?</span></h1>
+          <p class="hero-copy">Busca una ciudad y consulta sus condiciones actuales y los próximos días.</p>
+
+          <form class="search-form" id="search-form" novalidate>
+            <label class="sr-only" for="city-input">Nombre de la ciudad</label>
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="city-input" name="city" type="search" placeholder="Ej. Quetzaltenango" autocomplete="off" required />
+            <button class="search-button" id="search-button" type="submit">
+              <span>Buscar clima</span>
+              <span aria-hidden="true">→</span>
+            </button>
+          </form>
+          <p class="search-hint">Prueba con ciudad y país para obtener un resultado más preciso.</p>
+        </section>
+
+        <div class="connection-banner" id="connection-banner" role="status" hidden></div>
+
+        <section class="feedback" id="feedback" aria-live="polite" hidden>
+          <div class="feedback-icon" aria-hidden="true">!</div>
+          <div>
+            <h2 id="feedback-title">No pudimos cargar el clima</h2>
+            <p id="feedback-message"></p>
+          </div>
+          <button class="text-button" id="retry-button" type="button" hidden>Reintentar</button>
+        </section>
+
+        <section class="weather-content" id="weather-content" aria-live="polite">
+          <div class="loading-state" id="loading-state" hidden>
+            <span class="spinner" aria-hidden="true"></span>
+            <span>Consultando el pronóstico...</span>
+          </div>
+
+          <div id="weather-panel" hidden>
+            <div class="location-heading">
+              <div>
+                <p class="section-label">Ubicación consultada</p>
+                <h2 id="location-name">-</h2>
+                <p id="location-meta" class="location-meta">-</p>
+              </div>
+              <div class="updated-time" id="updated-time">-</div>
+            </div>
+
+            <article class="current-card">
+              <div class="current-main">
+                <div class="weather-symbol" id="current-symbol" aria-hidden="true">☀️</div>
+                <div>
+                  <p class="section-label">Ahora</p>
+                  <div class="temperature-line"><span id="current-temperature">-</span><sup>°C</sup></div>
+                  <p class="weather-description" id="current-description">-</p>
+                </div>
+              </div>
+              <div class="current-details">
+                <div class="detail-item"><span class="detail-icon" aria-hidden="true">◌</span><span><b id="feels-like">-</b><small>Sensación térmica</small></span></div>
+                <div class="detail-item"><span class="detail-icon" aria-hidden="true">◒</span><span><b id="humidity">-</b><small>Humedad</small></span></div>
+                <div class="detail-item"><span class="detail-icon" aria-hidden="true">≋</span><span><b id="wind-speed">-</b><small>Viento</small></span></div>
+              </div>
+            </article>
+
+            <div class="forecast-heading">
+              <div>
+                <p class="section-label">Próximos días</p>
+                <h2>Pronóstico extendido</h2>
+              </div>
+              <span class="unit-label">Temperaturas en °C</span>
+            </div>
+            <div class="forecast-grid" id="forecast-grid"></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">Datos meteorológicos proporcionados por Open-Meteo · Sin llave de API</footer>
+    </div>
+  </body>
+</html>
+
