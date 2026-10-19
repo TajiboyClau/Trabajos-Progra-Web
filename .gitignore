@@ -1,0 +1,20 @@
+# Dependencias y salidas regenerables
+node_modules/
+dist/
+coverage/
+
+# Archivos locales del sistema
+.DS_Store
+Thumbs.db
+*.local
+
+# Variables de entorno y secretos
+.env
+.env.*
+!.env.example
+
+# Archivos temporales de editores
+.vscode/
+.idea/
+*.swp
+
