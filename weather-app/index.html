@@ -3,98 +3,104 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Consulta el clima actual y el pronóstico de una ciudad." />
-    <title>Clima Claro | Weather App</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <meta name="description" content="Meteora muestra el clima actual y el pronóstico de tu ciudad." />
+    <title>Meteora | Clima en tu ciudad</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js" defer></script>
   </head>
   <body>
-    <div class="page-shell">
-      <header class="site-header">
-        <a class="brand" href="./" aria-label="Clima Claro, inicio">
-          <span class="brand-mark" aria-hidden="true">☼</span>
-          <span>Clima Claro</span>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="Meteora, inicio">
+          <span class="brand-symbol" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>Meteora</span>
         </a>
-        <span class="status-pill"><span class="status-dot" aria-hidden="true"></span> Datos en tiempo real</span>
+        <div class="live-indicator"><span></span> Pronóstico en vivo</div>
       </header>
 
       <main>
-        <section class="hero" aria-labelledby="page-title">
-          <div class="eyebrow">Tu pronóstico, sin complicaciones</div>
-          <h1 id="page-title">¿Qué clima hace <span>hoy?</span></h1>
-          <p class="hero-copy">Busca una ciudad y consulta sus condiciones actuales y los próximos días.</p>
+        <section class="hero-grid" aria-labelledby="page-title">
+          <div class="hero-copy">
+            <p class="eyebrow">Tu clima, más claro</p>
+            <h1 id="page-title">El clima de <em>hoy</em>, en una sola mirada.</h1>
+            <p class="hero-description">Busca una ciudad y descubre cómo se siente afuera, qué viene después y cuándo cambia el cielo.</p>
 
-          <form class="search-form" id="search-form" novalidate>
-            <label class="sr-only" for="city-input">Nombre de la ciudad</label>
-            <span class="search-icon" aria-hidden="true">⌕</span>
-            <input id="city-input" name="city" type="search" placeholder="Ej. Quetzaltenango" autocomplete="off" required />
-            <button class="search-button" id="search-button" type="submit">
-              <span>Buscar clima</span>
-              <span aria-hidden="true">→</span>
-            </button>
-          </form>
-          <p class="search-hint">Prueba con ciudad y país para obtener un resultado más preciso.</p>
-        </section>
-
-        <div class="connection-banner" id="connection-banner" role="status" hidden></div>
-
-        <section class="feedback" id="feedback" aria-live="polite" hidden>
-          <div class="feedback-icon" aria-hidden="true">!</div>
-          <div>
-            <h2 id="feedback-title">No pudimos cargar el clima</h2>
-            <p id="feedback-message"></p>
-          </div>
-          <button class="text-button" id="retry-button" type="button" hidden>Reintentar</button>
-        </section>
-
-        <section class="weather-content" id="weather-content" aria-live="polite">
-          <div class="loading-state" id="loading-state" hidden>
-            <span class="spinner" aria-hidden="true"></span>
-            <span>Consultando el pronóstico...</span>
-          </div>
-
-          <div id="weather-panel" hidden>
-            <div class="location-heading">
-              <div>
-                <p class="section-label">Ubicación consultada</p>
-                <h2 id="location-name">-</h2>
-                <p id="location-meta" class="location-meta">-</p>
-              </div>
-              <div class="updated-time" id="updated-time">-</div>
+            <form class="search-form" id="search-form" novalidate>
+              <label class="sr-only" for="city-input">Busca una ciudad</label>
+              <span class="search-mark" aria-hidden="true">⌕</span>
+              <input id="city-input" name="city" type="search" placeholder="Busca una ciudad..." autocomplete="off" required />
+              <button id="search-button" type="submit"><span>Consultar</span><strong aria-hidden="true">↗</strong></button>
+            </form>
+            <div class="quick-search" id="quick-search" aria-label="Búsquedas rápidas">
+              <span>Prueba con</span>
+              <button type="button" data-city="Quetzaltenango">Quetzaltenango</button>
+              <button type="button" data-city="Guatemala City">Guatemala</button>
+              <button type="button" data-city="San Salvador">San Salvador</button>
             </div>
+            <div class="connection-banner" id="connection-banner" role="status" hidden></div>
+            <section class="feedback" id="feedback" aria-live="polite" hidden>
+              <span class="feedback-symbol" aria-hidden="true">!</span>
+              <div><strong id="feedback-title">No pudimos cargar el clima</strong><p id="feedback-message"></p></div>
+              <button id="retry-button" type="button" hidden>Reintentar</button>
+            </section>
+          </div>
 
+          <div class="hero-art" aria-hidden="true">
+            <div class="art-label">OPEN-METEO / NOW</div>
+            <div class="sun-orb"><div class="sun-core"></div></div>
+            <div class="cloud cloud-back"></div>
+            <div class="cloud cloud-front"></div>
+            <div class="art-temperature">24<span>°</span></div>
+            <div class="art-caption">Una nueva lectura<br />para cada momento</div>
+          </div>
+        </section>
+
+        <div class="loading-state" id="loading-state" hidden>
+          <span class="loader" aria-hidden="true"></span>
+          <span>Buscando las condiciones de tu ciudad...</span>
+        </div>
+
+        <section class="dashboard" id="weather-panel" aria-live="polite" hidden>
+          <div class="dashboard-heading">
+            <div>
+              <p class="eyebrow">Ahora mismo</p>
+              <h2 id="location-name">Quetzaltenango</h2>
+              <p class="location-meta"><span id="location-country">-</span><span class="meta-divider">•</span><span id="location-timezone">-</span></p>
+            </div>
+            <div class="updated-label"><span class="updated-dot"></span><span id="updated-time">Actualizado ahora</span></div>
+          </div>
+
+          <div class="dashboard-grid">
             <article class="current-card">
-              <div class="current-main">
-                <div class="weather-symbol" id="current-symbol" aria-hidden="true">☀️</div>
-                <div>
-                  <p class="section-label">Ahora</p>
-                  <div class="temperature-line"><span id="current-temperature">-</span><sup>°C</sup></div>
-                  <p class="weather-description" id="current-description">-</p>
-                </div>
+              <div class="current-card-top">
+                <div><p class="card-label">Condición actual</p><p class="current-date" id="current-date">-</p></div>
+                <div class="weather-icon" id="current-icon" aria-hidden="true">☀️</div>
               </div>
-              <div class="current-details">
-                <div class="detail-item"><span class="detail-icon" aria-hidden="true">◌</span><span><b id="feels-like">-</b><small>Sensación térmica</small></span></div>
-                <div class="detail-item"><span class="detail-icon" aria-hidden="true">◒</span><span><b id="humidity">-</b><small>Humedad</small></span></div>
-                <div class="detail-item"><span class="detail-icon" aria-hidden="true">≋</span><span><b id="wind-speed">-</b><small>Viento</small></span></div>
-              </div>
+              <div class="current-reading"><span id="current-temperature">-</span><sup>°C</sup></div>
+              <p class="current-condition" id="current-condition">-</p>
+              <div class="temperature-range"><span>Máx <b id="current-max">-</b></span><span>Mín <b id="current-min">-</b></span></div>
+              <div class="card-glow" aria-hidden="true"></div>
             </article>
 
-            <div class="forecast-heading">
-              <div>
-                <p class="section-label">Próximos días</p>
-                <h2>Pronóstico extendido</h2>
-              </div>
-              <span class="unit-label">Temperaturas en °C</span>
+            <div class="metrics-grid">
+              <article class="metric-card metric-blue"><span class="metric-icon" aria-hidden="true">◌</span><span class="metric-value" id="feels-like">-</span><span class="metric-label">Sensación térmica</span></article>
+              <article class="metric-card metric-orange"><span class="metric-icon" aria-hidden="true">◒</span><span class="metric-value" id="humidity">-</span><span class="metric-label">Humedad</span></article>
+              <article class="metric-card metric-lilac"><span class="metric-icon" aria-hidden="true">≋</span><span class="metric-value" id="wind-speed">-</span><span class="metric-label">Viento</span></article>
+              <article class="metric-card metric-green"><span class="metric-icon" aria-hidden="true">◍</span><span class="metric-value" id="daylight">-</span><span class="metric-label">Luz del día</span></article>
             </div>
-            <div class="forecast-grid" id="forecast-grid"></div>
           </div>
+
+          <div class="forecast-heading">
+            <div><p class="eyebrow">Lo que sigue</p><h2>Próximos cinco días</h2></div>
+            <span class="forecast-note">Temperaturas en °C</span>
+          </div>
+          <div class="forecast-list" id="forecast-list"></div>
         </section>
       </main>
 
-      <footer class="site-footer">Datos meteorológicos proporcionados por Open-Meteo · Sin llave de API</footer>
+      <footer class="footer"><span>Meteora</span><span>Datos meteorológicos por Open-Meteo</span><span>Sin llave de API</span></footer>
     </div>
   </body>
 </html>
